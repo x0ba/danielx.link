@@ -1,17 +1,249 @@
 ---
+import "../styles/global.css";
 
+const products = [
+  {
+    id: "01",
+    name: "Actual Good Final Grade Calculator",
+    desc: "Because rogerhub.com/final-grade-calculator is ugly.",
+    href: "https://final.danielx.link",
+    color: "#DC2626",
+  },
+  {
+    id: "02",
+    name: "RxLog",
+    desc: "Because logging medication for your loved ones shouldn't be a pain.",
+    href: "https://rxlog.danielx.link",
+    color: "#2563EB",
+  },
+];
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Daniel's Things</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body
+    class="bg-cream text-ink font-body antialiased selection:bg-vermillion selection:text-cream"
+  >
+    <!-- Grain texture overlay -->
+    <div class="grain" aria-hidden="true"></div>
+
+    <main
+      class="relative max-w-[1100px] mx-auto px-6 md:px-12 h-dvh flex flex-col py-6 md:py-10"
+    >
+      <!-- Hero -->
+      <header class="relative mb-5 md:mb-6 fade-up">
+        <!-- Large decorative glyph -->
+        <div
+          class="hero-glyph absolute -top-4 -right-2 md:-right-12 text-[10rem] md:text-[14rem] leading-none text-ink/[0.03] font-display select-none pointer-events-none"
+          aria-hidden="true"
+        >
+          &#x2733;
+        </div>
+
+        <h1
+          class="relative font-display text-[clamp(2.8rem,8vw,6rem)] leading-[0.88] tracking-[-0.02em] mb-4"
+        >
+          Daniel's<br /><em class="text-vermillion">Doohickeys</em>
+        </h1>
+
+        <div class="relative flex items-center gap-2 text-stone">
+          <span class="asterisk text-vermillion text-base">&#x2733;</span>
+          <p class="text-sm md:text-base font-light tracking-wide">
+            A collection of useful knick-knacks.
+          </p>
+        </div>
+      </header>
+
+      <!-- Divider -->
+      <hr
+        class="border-rule mb-4 md:mb-5 fade-up"
+        style="animation-delay: 0.15s"
+      />
+
+      <!-- Product listing -->
+      <section class="flex-1 flex flex-col min-h-0">
+        <p
+          class="text-stone text-xs font-semibold tracking-[0.2em] uppercase mb-3 fade-up"
+          style="animation-delay: 0.25s"
+        >
+          Products
+        </p>
+
+        <ul class="border-t border-rule">
+          {
+            products.map((product, i) => (
+              <li
+                class="fade-up"
+                style={`animation-delay: ${0.35 + i * 0.08}s`}
+              >
+                <a
+                  href={product.href}
+                  target="_blank"
+                  class="product-row group block relative overflow-hidden border-b border-rule"
+                >
+                  <div
+                    class="product-fill"
+                    style={`background: ${product.color}`}
+                  />
+                  <div class="relative z-10 flex items-center py-2.5 md:py-3.5 gap-3 md:gap-6">
+                    <span class="product-text font-display text-lg sm:text-xl md:text-2xl text-stone/50 w-7 sm:w-9 md:w-10 shrink-0 tabular-nums transition-colors duration-300">
+                      {product.id}
+                    </span>
+                    <span class="product-text font-display text-base sm:text-lg md:text-2xl tracking-tight transition-colors duration-300">
+                      {product.name}
+                    </span>
+                    <span class="hidden lg:block flex-1 border-b border-dashed border-rule/50 self-center dash-line transition-opacity duration-300 group-hover:opacity-0" />
+                    <span class="product-text hidden sm:block text-sm text-stone font-light ml-auto lg:ml-0 transition-colors duration-300">
+                      {product.desc}
+                    </span>
+                    <svg
+                      class="product-arrow w-4 h-4 shrink-0 text-stone ml-auto sm:ml-0 transition-all duration-300"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M4.5 19.5 19.5 4.5m0 0H8.25m11.25 0v11.25"
+                      />
+                    </svg>
+                  </div>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+
+      <!-- Footer -->
+      <footer class="mt-auto pt-4 fade-up" style="animation-delay: 0.85s">
+        <hr class="border-rule mb-4" />
+        <div
+          class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 text-stone text-sm font-light"
+        >
+          <p>&copy; 2026 Daniel Xu</p>
+          <p class="flex items-center gap-2">
+            <span
+              class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"
+            ></span>
+            All systems operational
+          </p>
+        </div>
+      </footer>
+    </main>
+  </body>
 </html>
+
+<style>
+  /* Grain texture */
+  .grain {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+  }
+  .grain::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: 0.035;
+    pointer-events: none;
+  }
+
+  /* Large background glyph — slow rotation */
+  .hero-glyph {
+    animation: slowSpin 40s linear infinite;
+  }
+
+  /* Small asterisk — faster rotation */
+  .asterisk {
+    display: inline-block;
+    animation: slowSpin 10s linear infinite;
+  }
+
+  @keyframes slowSpin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* Staggered page-load animation */
+  .fade-up {
+    animation: fadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Product row — background sweep on hover */
+  .product-fill {
+    position: absolute;
+    inset: 0;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 0;
+  }
+
+  .product-row:hover .product-fill {
+    transform: scaleX(1);
+  }
+
+  /* Product row — text color change on hover */
+  .product-row:hover .product-text {
+    color: #faf8f5;
+  }
+
+  .product-row:hover .product-arrow {
+    color: #faf8f5;
+    transform: translate(3px, -3px);
+  }
+
+  /* Focus-visible for keyboard navigation */
+  .product-row:focus-visible {
+    outline: 2px solid var(--color-vermillion);
+    outline-offset: -2px;
+  }
+
+  /* Respect reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .fade-up {
+      animation: none;
+      opacity: 1;
+    }
+    .asterisk,
+    .hero-glyph {
+      animation: none;
+    }
+    .product-fill {
+      transition: none;
+    }
+    .product-arrow {
+      transition: none;
+    }
+  }
+</style>

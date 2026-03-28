@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #FAF8F5;
+  --color-ink: #18181B;
+  --color-vermillion: #E53E2E;
+  --color-stone: #78756E;
+  --color-rule: #E0DCD6;
+  --font-display: 'Instrument Serif', serif;
+  --font-body: 'Outfit', sans-serif;
+}

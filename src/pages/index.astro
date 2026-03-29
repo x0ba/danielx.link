@@ -164,17 +164,26 @@ const projects = [
 
   @media (max-width: 500px) {
     a {
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      grid-template-rows: auto auto;
       gap: 0.25rem;
+      align-items: center;
     }
 
-    .desc {
-      width: 100%;
-      order: 3;
+    .name {
+      grid-column: 1;
+      grid-row: 1;
     }
 
     svg {
-      margin-left: auto;
+      grid-column: 2;
+      grid-row: 1;
+    }
+
+    .desc {
+      grid-column: 1 / -1;
+      grid-row: 2;
     }
   }
 

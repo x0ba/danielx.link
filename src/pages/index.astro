@@ -39,8 +39,9 @@ const projects = [
     <main>
       <h1>Doohickey Labs</h1>
       <p class="subtitle">
-        <a href="https://danielx.me">Daniel's</a>... company? Who knows what the
-        future holds. I make stuff.
+        <a class="subtitle-link" href="https://danielx.me" target="_blank"
+          >Daniel's</a
+        > ... company? Who knows what the future holds. I make stuff.
         <ul>
           {
             projects.map((p) => (
@@ -103,9 +104,23 @@ const projects = [
 
     .subtitle {
       font-size: 0.85rem;
-      color: #4a4540;
+      color: #7a756f;
       letter-spacing: 0.04em;
       margin: 0.75rem 0 3rem;
+    }
+
+    .subtitle-link {
+      display: inline;
+      padding: 0;
+      color: #a09890;
+      text-decoration-line: underline;
+      text-decoration-color: rgba(160, 152, 144, 0.3);
+      text-underline-offset: 2px;
+    }
+
+    .subtitle-link:hover {
+      color: #e8e4df;
+      text-decoration-color: rgba(232, 228, 223, 0.5);
     }
 
     ul {

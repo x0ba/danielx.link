@@ -1,4 +1,5 @@
 ---
+import type { $brand } from "astro:schema";
 import "../styles/global.css";
 
 const projects = [
@@ -11,6 +12,11 @@ const projects = [
     name: "RxLog",
     desc: "Because a medication logger shouldn't require a master's in computer science.",
     href: "https://rxlog.danielx.link",
+  },
+  {
+    name: "ScheduleSync",
+    desc: "Because those five minutes spent copying your class schedule to Google Calendar could be better spent doing something else.",
+    href: "https://schedulesync.tech",
   },
 ];
 ---
@@ -32,7 +38,9 @@ const projects = [
   <body>
     <main>
       <h1>Doohickey Labs</h1>
-      <p class="subtitle">because not everything needs to be AI</p>
+      <p class="subtitle">
+        Daniel's... company? Who knows what the future holds. I make stuff.
+      </p>
       <ul>
         {
           projects.map((p) => (
